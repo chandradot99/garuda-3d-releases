@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download GARUDA 3D</title>
+<meta name="description" content="GARUDA 3D - drone photogrammetry and military symbology for use without an internet connection.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <img class="mark" src="img/logo.png" alt="">
+    <span class="wordmark">GARUDA 3D</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Download GARUDA 3D</h1>
+      <p class="tagline">
+        Drone photogrammetry and military symbology, built to run with no
+        internet connection.
+      </p>
+      <p class="release-line" id="release-line"></p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div id="notes" class="notes" hidden>
+      <div class="notes-title">What's new</div>
+      <ul id="notes-list"></ul>
+    </div>
+
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div id="panels"></div>
+
+    <noscript>
+      <div class="empty">
+        <p>This page needs JavaScript to list the downloads.</p>
+        <p><a class="btn" id="noscript-releases" href="https://github.com/chandradot99/garuda-3d-releases/releases">All releases on GitHub</a></p>
+      </div>
+    </noscript>
+  </section>
+
+  <section class="wrap band">
+    <h2>System requirements</h2>
+    <div class="cols">
+      <div>
+        <div class="tier">Minimum</div>
+        <ul>
+          <li>64-bit processor</li>
+          <li>8 GB of memory</li>
+          <li>20 GB of free disk space</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tier">Recommended</div>
+        <ul>
+          <li>64-bit processor, 8 cores or more</li>
+          <li>16 GB of memory or more</li>
+          <li>100 GB of free disk space</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fineprint">
+      Memory is what limits how many images can be processed at once. 8 GB
+      handles roughly 100 images; large sorties want considerably more.
+    </p>
+  </section>
+
+  <section class="wrap band">
+    <h2>Questions</h2>
+
+    <div class="qa">
+      <div class="q">Does the machine need an internet connection?</div>
+      <div class="a">
+        No. GARUDA 3D is built to run with none at all. Map imagery is supplied
+        as offline tile sets held on the machine rather than fetched from a
+        tile server, and nothing phones home.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">What do I need on the machine first?</div>
+      <div class="a">
+        Docker. The download contains GARUDA 3D, not Docker itself: on Linux
+        that means the Docker Engine and the Compose plugin, and on Windows
+        and macOS it means Docker Desktop. Install it before running the
+        installer &mdash; on a machine with no internet, bring it across the
+        same way. Note that Docker Desktop requires a paid subscription for
+        larger organisations; the Linux engine does not.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Which bundle do I take?</div>
+      <div class="a">
+        The one for the machine's processor. Intel and AMD machines, which is
+        almost every Windows and Linux one, take the Intel/AMD bundle; Apple
+        Silicon Macs and ARM servers take the ARM one. Taking the wrong one
+        is not fatal &mdash; Docker will emulate &mdash; but it will be
+        noticeably slower.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">How do I check the file arrived intact?</div>
+      <div class="a">
+        Compare the SHA-256 shown above with the one you compute after copying.
+        On Windows: <code>certutil -hashfile &lt;file&gt; SHA256</code>. On
+        macOS or Linux: <code>shasum -a 256 &lt;file&gt;</code>. They must match
+        exactly. This is worth doing on a file that crossed onto the machine on
+        a stick, because nothing else will tell you it was truncated.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Will installing over an existing copy lose my work?</div>
+      <div class="a">
+        No. Projects, tasks and annotations live in a separate data directory
+        that an upgrade leaves alone. Take a copy of it first anyway.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Can I build it myself instead?</div>
+      <div class="a">
+        Yes. The source is in the
+        <a id="repo-link" href="https://github.com/chandradot99/garuda-3d-releases">repository</a>
+        and the README covers building and running it with Docker.
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">What is this built on?</div>
+      <div class="a">
+        GARUDA 3D is derived from
+        <a href="https://github.com/WebODM/WebODM">WebODM</a>, which is free
+        software under the AGPL-3.0. So is this.
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="credit">
+      <span class="credit-kicker">Developed by</span>
+      <span class="credit-name">Lt Abhishek Singh</span>
+    </span>
+    <span class="footer-links">
+      <a id="footer-repo" href="https://github.com/chandradot99/garuda-3d-releases">Source</a>
+      <a id="footer-releases" href="https://github.com/chandradot99/garuda-3d-releases/releases">All releases</a>
+    </span>
+  </div>
+</footer>
+
+<script src="releases.js"></script>
+<script src="download.js"></script>
+</body>
+</html>

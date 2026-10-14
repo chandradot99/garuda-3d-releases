@@ -1,0 +1,348 @@
+/*
+The download site. One stylesheet, no build step, no web fonts: it loads on a
+slow link and it works opened straight off the disk.
+
+Colours are the ones the application itself uses, so the site and the software
+read as the same thing.
+*/
+:root{
+    --ink: #0B0F08;
+    --bone: #E8E4CF;
+    --saffron: #FF9933;
+    --rule: rgba(232, 228, 207, .18);
+    --muted: rgba(232, 228, 207, .62);
+    --panel: rgba(232, 228, 207, .04);
+}
+
+*{ box-sizing: border-box; }
+
+html{ -webkit-text-size-adjust: 100%; }
+
+body{
+    margin: 0;
+    background-color: var(--ink);
+    color: var(--bone);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+
+    /* The formation crest behind the page, held down far enough that text
+       never has to compete with it. The grid over the top is what keeps a
+       photograph from reading as a photograph. */
+    background-image:
+        repeating-linear-gradient(0deg,  rgba(200,224,138,.03) 0 1px, transparent 1px 44px),
+        repeating-linear-gradient(90deg, rgba(200,224,138,.03) 0 1px, transparent 1px 44px),
+        radial-gradient(ellipse at 50% 38%, rgba(11,15,8,.80) 0%, rgba(11,15,8,.94) 46%,
+            rgba(11,15,8,.99) 76%, var(--ink) 100%),
+        url("img/crest.jpg");
+    background-repeat: repeat, repeat, no-repeat, no-repeat;
+    background-position: 0 0, 0 0, center top, center 120px;
+    background-size: auto, auto, cover, auto 70vh;
+    background-attachment: scroll, scroll, fixed, fixed;
+}
+
+.wrap{
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a{ color: var(--saffron); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+code{
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .88em;
+    background: rgba(232,228,207,.08);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1px 5px;
+}
+
+/* ------------------------------------------------------------- masthead */
+
+.masthead{
+    border-bottom: 1px solid var(--rule);
+    background: rgba(11,15,8,.75);
+}
+
+.masthead-inner{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 54px;
+}
+
+.mark{ width: 26px; height: 26px; }
+
+.wordmark{
+    font-weight: 700;
+    letter-spacing: .16em;
+    font-size: 14px;
+}
+
+/* ----------------------------------------------------------------- hero */
+
+.hero{ padding: 56px 0 28px; text-align: center; }
+
+.hero h1{
+    margin: 0 0 10px;
+    font-size: 38px;
+    letter-spacing: .02em;
+    font-weight: 700;
+}
+
+.tagline{
+    margin: 0 auto;
+    max-width: 520px;
+    color: var(--muted);
+}
+
+.release-line{
+    margin: 14px 0 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: .04em;
+}
+
+/* ---------------------------------------------------------------- notes */
+
+.notes{
+    border-left: 2px solid var(--saffron);
+    padding: 6px 0 6px 14px;
+    margin: 0 0 26px;
+}
+
+.notes-title{
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.notes ul{ margin: 4px 0 0; padding-left: 18px; }
+
+/* ----------------------------------------------------------------- tabs */
+
+.tabs{
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.tab{
+    appearance: none;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    color: var(--muted);
+    font: inherit;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    margin-bottom: -1px;
+    cursor: pointer;
+}
+
+.tab:hover{ color: var(--bone); }
+
+.tab[aria-selected="true"]{
+    color: var(--saffron);
+    border-color: var(--rule);
+    border-bottom: 1px solid var(--ink);
+    background: var(--panel);
+}
+
+/* A platform with nothing published keeps its tab, marked, so the row does
+   not change shape as releases come and go. */
+.tab-dot{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .4;
+    vertical-align: middle;
+}
+
+.panel{ padding: 22px 0 6px; }
+
+/* ---------------------------------------------------------------- cards */
+
+.card{
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--panel);
+}
+
+.card-main{ flex: 1; min-width: 0; }
+
+.card-label{ font-size: 17px; font-weight: 700; }
+
+.card-note{ color: var(--muted); margin: 2px 0 6px; }
+
+.card-requires{
+    font-size: 12px;
+    color: var(--muted);
+    opacity: .8;
+    margin-bottom: 6px;
+}
+
+.card-meta{
+    display: flex;
+    gap: 14px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.card-file{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-size{ white-space: nowrap; }
+
+.card-sum{ margin-top: 9px; font-size: 10px; }
+
+.card-sum-label{
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: .7;
+    margin-right: 7px;
+}
+
+/* A truncated checksum cannot be compared, so it wraps rather than clipping */
+.card-sum code{
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 10px;
+    color: var(--muted);
+    word-break: break-all;
+}
+
+.btn{
+    display: inline-block;
+    padding: 9px 20px;
+    border: 1px solid var(--saffron);
+    border-radius: 2px;
+    color: var(--saffron);
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.btn:hover{
+    background: var(--saffron);
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.btn.ghost{ border-color: var(--rule); color: var(--bone); }
+.btn.ghost:hover{ background: var(--panel); color: var(--bone); }
+
+.empty{
+    text-align: center;
+    padding: 40px 20px;
+    border: 1px dashed var(--rule);
+    border-radius: 3px;
+    color: var(--muted);
+}
+
+.empty p{ margin: 0 0 14px; }
+.empty p:last-child{ margin-bottom: 0; }
+
+/* ---------------------------------------------------------------- bands */
+
+.band{
+    margin-top: 44px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+}
+
+.band h2{
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 16px;
+    font-weight: 600;
+}
+
+.cols{ display: flex; gap: 40px; flex-wrap: wrap; }
+.cols > div{ flex: 1; min-width: 220px; }
+
+.tier{
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: .8;
+}
+
+.band ul{ margin: 6px 0 0; padding-left: 18px; }
+
+.fineprint{ font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+.qa{ margin-bottom: 18px; }
+.q{ font-weight: 700; }
+.a{ color: var(--muted); }
+
+/* --------------------------------------------------------------- footer */
+
+.footer{
+    margin-top: 56px;
+    border-top: 1px solid var(--rule);
+    background: rgba(11,15,8,.75);
+}
+
+.footer-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.credit{
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid var(--saffron);
+    padding-left: 10px;
+    line-height: 1.25;
+}
+
+.credit-kicker{
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.credit-name{
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.footer-links{ display: flex; gap: 18px; font-size: 13px; }
+
+@media (max-width: 620px){
+    .hero{ padding-top: 34px; }
+    .hero h1{ font-size: 28px; }
+    .card{ display: block; }
+    .card-action{ margin-top: 14px; }
+    .tabs{ overflow-x: auto; }
+}
