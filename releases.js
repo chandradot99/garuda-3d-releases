@@ -15,62 +15,55 @@ installers, with their sizes and checksums already filled in.
 window.GARUDA_RELEASES = {
   repo: "chandradot99/garuda-3d-releases",
 
-  version: "1.1.0",
+  version: "1.1.1",
   released: "14 October 2026",
-  notes: [
-    "Installers for Windows and macOS as well as Linux",
-    "Native builds for ARM as well as Intel and AMD",
-    "Offline basemaps from MBTiles tile sets, for use with no tile server",
-    "Military symbology annotations, shown on the map and over the 3D model",
-    "Drawing tools for areas, lines and text",
-    "Every task in a project in one 3D scene"
-  ],
+  notes: [],
 
   files: [
     {
       platform: "windows",
-      file: "garuda3d-offline-1.1.0-amd64.tar.gz",
+      file: "garuda3d-offline-1.1.1-amd64.tar.gz",
       label: "Offline bundle",
       note: "Run install.ps1 in PowerShell. Nothing is fetched from the internet.",
       requires: "Windows 10 or 11, 64-bit, with Docker Desktop",
-      size: 786105439,
-      sha256: "4960a55935ef42efab606cfd22b45c89aa6c247214fb8d24abf7bd0d3561b50e"
+      size: 789731445,
+      sha256: "81d709f3c447b6fd60dce7a52996636575d9ea5cd4e18c303b94a1646edc08d8"
     },
     {
       platform: "macos",
-      file: "garuda3d-offline-1.1.0-arm64.tar.gz",
-      label: "Offline bundle \u2014 Apple Silicon",
+      file: "garuda3d-offline-1.1.1-arm64.tar.gz",
+      label: "Offline bundle — Apple Silicon",
       note: "Run install.sh in Terminal. Nothing is fetched from the internet.",
       requires: "macOS 12 or later on M1 and above, with Docker Desktop",
-      size: 735322250,
-      sha256: "e9879634625004e051d175e85de1f8af4fb3099ef45a6a9894cafcc2fa338f7e"
+      size: 738931544,
+      sha256: "210418b8ad10a1559f66a79c11a595360bd9265e9127c1dc85472c6601653e98"
     },
     {
       platform: "macos",
-      file: "garuda3d-offline-1.1.0-amd64.tar.gz",
-      label: "Offline bundle \u2014 Intel",
+      file: "garuda3d-offline-1.1.1-amd64.tar.gz",
+      label: "Offline bundle — Intel",
       note: "Run install.sh in Terminal. Nothing is fetched from the internet.",
       requires: "macOS 12 or later on Intel, with Docker Desktop",
-      size: 786105439,
-      sha256: "4960a55935ef42efab606cfd22b45c89aa6c247214fb8d24abf7bd0d3561b50e"
+      size: 789731445,
+      sha256: "81d709f3c447b6fd60dce7a52996636575d9ea5cd4e18c303b94a1646edc08d8"
     },
     {
       platform: "linux",
-      file: "garuda3d-offline-1.1.0-amd64.tar.gz",
-      label: "Offline bundle \u2014 Intel and AMD",
+      file: "garuda3d-offline-1.1.1-amd64.tar.gz",
+      label: "Offline bundle — Intel and AMD",
       note: "Run install.sh. Nothing is fetched from the internet.",
       requires: "64-bit Linux with Docker Engine and the Compose plugin",
-      size: 786105439,
-      sha256: "4960a55935ef42efab606cfd22b45c89aa6c247214fb8d24abf7bd0d3561b50e"
+      size: 789731445,
+      sha256: "81d709f3c447b6fd60dce7a52996636575d9ea5cd4e18c303b94a1646edc08d8"
     },
     {
       platform: "linux",
-      file: "garuda3d-offline-1.1.0-arm64.tar.gz",
-      label: "Offline bundle \u2014 ARM",
+      file: "garuda3d-offline-1.1.1-arm64.tar.gz",
+      label: "Offline bundle — ARM",
       note: "Run install.sh. Nothing is fetched from the internet.",
       requires: "64-bit ARM Linux with Docker Engine and the Compose plugin",
-      size: 735322250,
-      sha256: "e9879634625004e051d175e85de1f8af4fb3099ef45a6a9894cafcc2fa338f7e"
+      size: 738931544,
+      sha256: "210418b8ad10a1559f66a79c11a595360bd9265e9127c1dc85472c6601653e98"
     }
   ]
 };
